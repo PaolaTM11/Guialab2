@@ -3,6 +3,8 @@
     static void Main()
     {
      MostrarMenu();
+     for (int solicitud=1;solicitud <=3;solicitud++)
+     {
      Console.WriteLine("=================================");
      Console.WriteLine("   SOPORTE ACADÉMICO");
      Console.WriteLine("=================================");
@@ -63,7 +65,7 @@
      descripcion = Console.ReadLine();
       string prioridad=AsignarPrioridad(tipoConsulta);
       MostrarResumen(codigo,nombre,tipoConsulta,descripcion,prioridad);
-     
+     }
     
     }
 
@@ -77,8 +79,8 @@
         Console.WriteLine("2. Mostrar solicitudes");
         Console.WriteLine("3. Salir");
      }    
-
-   static string AsignarPrioridad(string tipoConsulta)
+    //Req 9 :Parametro local de la funcion
+       static string AsignarPrioridad(string tipoConsulta)
    {
      if (tipoConsulta == "matricula")
      {
@@ -114,7 +116,7 @@
         Console.WriteLine("Prioridad asignada   : " + prioridad);
         Console.WriteLine("---------------------------------------------");
      }
-    
+    //req9:Parametro local de la funcion
     static bool ValidarTexto(string texto)
     {
        if (texto == "")

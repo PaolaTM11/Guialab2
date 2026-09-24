@@ -9,6 +9,14 @@ string descripcion;
 
 Console.WriteLine("Ingrese el código del estudiante:");
 codigo = Console.ReadLine();
+while (codigo == "" || codigo.Length < 5)
+{
+    Console.WriteLine("Código inválido.");
+    Console.WriteLine("Debe tener al menos 5 caracteres.");
+    Console.WriteLine("Ingrese nuevamente el código:");
+
+    codigo = Console.ReadLine();
+}
 
 Console.WriteLine("Ingrese el nombre del estudiante:");
 nombre = Console.ReadLine();

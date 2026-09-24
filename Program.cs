@@ -3,28 +3,38 @@
     static void Main()
     {
      MostrarMenu();
-     for (int solicitud=1;solicitud <=3;solicitud++)
+     string[] codigos=new string[3];
+     string[] nombres=new string[3];
+     string[] tiposConsultas=new string[3];
+     string[] descripciones=new string[3];
+     string[] prioridades=new string[3];
+
+     Console.WriteLine("Ingrese una opción:");
+     string opcion =Console.ReadLine();
+     if (opcion=="1")
      {
-     Console.WriteLine("=================================");
-     Console.WriteLine("   SOPORTE ACADÉMICO");
-     Console.WriteLine("=================================");
+       for (int solicitud=0;solicitud <3;solicitud++)
+       {
+        Console.WriteLine("=================================");
+        Console.WriteLine("   SOPORTE ACADÉMICO");
+        Console.WriteLine("=================================");
 
-     string codigo;
-     string nombre;
-     string tipoConsulta;
-     string descripcion;
+        string codigo;
+        string nombre;
+        string tipoConsulta;
+        string descripcion;
 
-     Console.WriteLine("Ingrese el código del estudiante:");
-     codigo = Console.ReadLine();
-     while (codigo == "" || codigo.Length < 5)
-
-    {
-       Console.WriteLine("Código inválido.");
-       Console.WriteLine("Debe tener al menos 5 caracteres.");
-      Console.WriteLine("Ingrese nuevamente el código:");
-
+       Console.WriteLine("Ingrese el código del estudiante:");
        codigo = Console.ReadLine();
-    }
+       while (codigo == "" || codigo.Length < 5)
+
+      {
+         Console.WriteLine("Código inválido.");
+         Console.WriteLine("Debe tener al menos 5 caracteres.");
+         Console.WriteLine("Ingrese nuevamente el código:");
+
+          codigo = Console.ReadLine();
+      }
 
    Console.WriteLine("Ingrese el nombre del estudiante:");
    nombre = Console.ReadLine();
@@ -64,10 +74,42 @@
       Console.WriteLine("Ingrese una descripción:");
      descripcion = Console.ReadLine();
       string prioridad=AsignarPrioridad(tipoConsulta);
+      codigos[solicitud]=codigo;
+      nombres[solicitud]=nombre;
+      tiposConsultas[solicitud]=tipoConsulta;
+      descripciones[solicitud]=descripcion;
+      prioridades[solicitud]=prioridad;
       MostrarResumen(codigo,nombre,tipoConsulta,descripcion,prioridad);
      }
     
     }
+    else if(opcion =="2")
+        {
+            Console.WriteLine();
+            Console.WriteLine("====SOLICITUDES REGISTRADAS====");
+            for (int i=0;i<3;i++)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Solicitud"+(i+1));
+                Console.WriteLine("Código:"+codigos[i]);
+                Console.WriteLine("Nombre:"+nombres[i]);
+                Console.WriteLine("Tipo de consulta:"+tiposConsultas[i]);
+                Console.WriteLine("Descripcion:"+ descripciones[i]);
+                Console.WriteLine("Prioridad:" +prioridades[i]);
+            }
+
+        }
+    else if (opcion=="3")
+        {
+            Console.WriteLine("Programa finalizado");
+        }
+        else
+        {
+            Console.WriteLine("Opcion incorrecta");
+
+        }
+    }
+
 
 
   static void MostrarMenu()
@@ -86,13 +128,13 @@
      {
         return "Alta";
      }
-     else if (tipoConsulta == "pagos")
+     else if (tipoConsulta == "pagos") 
      {
         return "Alta";
     }
      else if (tipoConsulta == "plataforma")
      {
-        return "Alta";
+        return "Baja";
      }
      else if (tipoConsulta == "constancia")
      {

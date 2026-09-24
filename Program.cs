@@ -26,6 +26,12 @@
 
    Console.WriteLine("Ingrese el nombre del estudiante:");
    nombre = Console.ReadLine();
+   while (ValidarTexto(nombre) == false)
+    {
+    Console.WriteLine("Nombre inválido. No debe estar vacío ni contener números.");
+    Console.WriteLine("Ingrese nuevamente el nombre:");
+    nombre = Console.ReadLine();
+    }
 
    Console.WriteLine("Ingrese el tipo de consulta:");
    tipoConsulta = Console.ReadLine();
@@ -99,6 +105,21 @@
      {
         return "Baja";
      }
+    }
+    static bool ValidarTexto(string texto)
+    {
+        if (texto == "")
+        {
+            return false;
+        }
+        for (int i = 0;i<texto.Length;i++)
+        {
+            if (char.IsDigit(texto[i]))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 

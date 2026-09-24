@@ -106,21 +106,33 @@
         return "Baja";
      }
     }
+
+    static void MostrarResumen(string codigo , string nombre,string tipoConsulta,string descripcion,string prioridad )
+    {
+        
+        Console.WriteLine();
+        Console.WriteLine("----------- RESUMEN DE SOLICITUD -----------");
+        Console.WriteLine("Código de estudiante : " + codigo);
+        Console.WriteLine("Nombre               : " + nombre);
+        Console.WriteLine("Tipo de consulta     : " + tipoConsulta);
+        Console.WriteLine("Descripción          : " + descripcion);
+        Console.WriteLine("Prioridad asignada   : " + prioridad);
+        Console.WriteLine("---------------------------------------------");
+     }
+    
     static bool ValidarTexto(string texto)
     {
-        if (texto == "")
+       if (texto == "")
         {
             return false;
         }
-        for (int i = 0;i<texto.Length;i++)
-        {
+         for (int i = 0;i<texto.Length;i++)
+          {
             if (char.IsDigit(texto[i]))
             {
                 return false;
             }
-        }
-        return true;
-    }
-
-
+          }
+           return true;
+     }
 }

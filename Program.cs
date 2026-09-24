@@ -23,6 +23,29 @@ nombre = Console.ReadLine();
 
 Console.WriteLine("Ingrese el tipo de consulta:");
 tipoConsulta = Console.ReadLine();
+string[] tipos = { "matricula", "pagos", "constancia", "plataforma", "otro" };
+
+bool valido = false;
+
+   while (valido == false)
+  {
+     for (int i = 0; i < tipos.Length; i++)
+     {
+        if (tipoConsulta == tipos[i])
+        {
+            valido = true;
+        }
+     }
+
+     if (valido == false)
+     {
+        Console.WriteLine("Tipo de consulta incorrecto.");
+        Console.WriteLine("Las opciones son: matricula, pagos, constancia, plataforma u otro.");
+        Console.WriteLine("Ingrese nuevamente el tipo de consulta:");
+
+        tipoConsulta = Console.ReadLine();
+     }
+   }
 
 Console.WriteLine("Ingrese una descripción:");
 descripcion = Console.ReadLine();

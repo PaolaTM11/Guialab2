@@ -59,17 +59,12 @@
       }
     }
 
-    Console.WriteLine("Ingrese una descripción:");
-    descripcion = Console.ReadLine();
-    string prioridad = AsignarPrioridad(tipoConsulta);
-
-    Console.WriteLine("\nSOLICITUD REGISTRADA");
+      Console.WriteLine("Ingrese una descripción:");
+     descripcion = Console.ReadLine();
+      string prioridad=AsignarPrioridad(tipoConsulta);
+      MostrarResumen(codigo,nombre,tipoConsulta,descripcion,prioridad);
      
-    Console.WriteLine("Código: " + codigo);
-    Console.WriteLine("Nombre: " + nombre);
-    Console.WriteLine("Tipo de consulta: " + tipoConsulta);
-    Console.WriteLine("Descripción: " + descripcion);
-    Console.WriteLine("Prioridad:"+prioridad);
+    
     }
 
 
